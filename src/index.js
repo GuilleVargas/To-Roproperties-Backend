@@ -1,8 +1,12 @@
 /*ESTE ARCHIVO SIRVE PARA ARRANCAR EL SERVIDOR*/
+
 //Requiero el modulo express y lo guardo en una constante con el mismo nombre
 const express = require('express');
 //Ejecuto el modulo express, y el objeto que me devuelve el servidor lo guardo en app
 const app = express(); 
+
+//Para que funcione el database.js hay que requerirlo
+require('./database');
 
 //Inicio la aplicación
 app.listen(3000); /*Quiero que escuche en el puerto 3k*/
