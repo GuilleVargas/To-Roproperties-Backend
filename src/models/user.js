@@ -14,5 +14,5 @@ const userSchema = new Schema({
 
 /*Creo un nuevo modelo ejecutando la funcion model, recibiendo dos parámetros,
  el nombre del modelo y el esquema/Schema en el que está basado */
-module.exports = model('User', userSchema); /*Lo exporto para así poder usarlo en 
+module.exports = model('User', userSchema, 'users'); /*Lo exporto para así poder usarlo en 
 otra parte de la aplicación*/
