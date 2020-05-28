@@ -1,19 +1,30 @@
-/*ESTE ARCHIVO SIRVE PARA CREAR LAS RUTAS*/
+/**
+ * TODO: ESTE ARCHIVO SIRVE PARA CREAR LAS RUTAS
+ * */
 
 //Requiero desde express la funcion Router
-const { Router } = require("express");
+const express = require('express');
 //Ejecuto la función Router, y el objeto que me devuelve lo guardo en una const
-const router = Router(); //El objeto router me sirve para definir urls
+const router = express.Router();    //El objeto router me sirve para definir urls
 
 //Importo el modelo del usuario y de la vivienda para poder interacturar con la DB
 const User = require("../models/User");
 const house = require("../models/Houses");
 
-//Vamos a requerir el modelo jsonwebtoken
+//Requiero el modelo jsonwebtoken
 const jwt = require("jsonwebtoken");
 
-//RUTA INICIAL
-router.get("/", (req, res) => res.send("Hello world"));
+//Requiero el house.controller
+const hsCtrl = require('../controllers/house.contoller');
+
+
+/**RUTA INICIAL
+ * ! Vamos a utilizarla como nuestra Rest API
+ * ? Para enviar y recibir datos en formato JSON
+*/
+router.get("/", hsCtrl.getHouses); //Así es más limpio, ya que la función está definida en otro archivo (controller/house.controller.js)
+
+
 
 //RUTA REGISTRAR USUARIO
 router.post("/signup", async (req, res) => {
