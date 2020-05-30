@@ -32,10 +32,25 @@ HouseCtrl.createHouses = async (req, res) =>{  // Crear/Guardar casas
 };
 
 HouseCtrl.editHouse = async (req,res) => {        // Actualizar casas
+   const {id} = req.params;                       //Esto es como decir, quiero el id dentro de req.param
+   const houseedit =   {
+        w_search: req.body.w_search,
+        type:req.body.type,
+        province:req.body.province,
+        population:req.body.population,
+        room:req.body.room,
+        bath:req.body.bath,
+        meters:req.body.meters,
+        price: req.body.price
+   }                 
+   await Houses.findByIdAndUpdate(id, {$set: houseedit}, {new: true});//busca el id y el $set es para actualizar con el nuevo houseedit que he definido};
+                                                                // {new: true} si no existe nada con ese id pues lo crea
+   res.json({status: 'House update'})
 };
 
-HouseCtrl.deleteHouse = function(){
-
+HouseCtrl.deleteHouse = async (req,res) =>{
+ await Houses.findByIdAndRemove(req.params.id);
+ res.json({status: 'House delete'});
 };
 
 
