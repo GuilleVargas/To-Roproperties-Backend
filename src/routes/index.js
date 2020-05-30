@@ -23,8 +23,10 @@ const hsCtrl = require('../controllers/house.contoller');
  * ? Para enviar y recibir datos en formato JSON
 */
 router.get("/", hsCtrl.getHouses); //Así es más limpio, ya que la función está definida en otro archivo (controller/house.controller.js)
-
-
+router.post("/", hsCtrl.createHouses); //Con este guardo datos, ya que es un post
+router.get("/:id", hsCtrl.getHouse); //Pido una sola casa mediante el id
+router.put("/:id",hsCtrl.editHouse) //Para editar las casas, le pasamos el id porque voy a actualizar una casa en específico
+router.delete("/:id",hsCtrl.deleteHouse) //Para eliminar las casas, le pasamos el id porque voy a eliminar una casa en específico
 
 //RUTA REGISTRAR USUARIO
 router.post("/signup", async (req, res) => {

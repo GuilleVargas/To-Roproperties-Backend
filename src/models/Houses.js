@@ -24,4 +24,4 @@ const HouseSchema = new Schema({
 /*Creo un nuevo modelo ejecutando la funcion model, recibiendo dos parámetros,
  el nombre del modelo y el esquema/Schema en el que está basado */
 module.exports = model('House', HouseSchema); /*Lo exporto para así poder usarlo en 
-otra parte de la aplicación*/
+otra parte de la aplicación*/ 
