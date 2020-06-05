@@ -10,7 +10,6 @@ const{ Schema, model } = require('mongoose');
  y dentro de un nuevo objeto voy a definir cómo van a lucir mis datos*/
 const HouseSchema = new Schema({
     title: {type: String, required: true},
-    subtitle: {type: String, required: true},
     w_search: { type: String, required: true},
     type: { type: String, required: true},
     province: { type: String, required: true},
