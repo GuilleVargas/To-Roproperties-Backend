@@ -22,11 +22,11 @@ const hsCtrl = require('../controllers/house.contoller');
  * ! Vamos a utilizarla como nuestra Rest API
  * ? Para enviar y recibir datos en formato JSON
 */
-router.get("/", hsCtrl.getHouses); //Así es más limpio, ya que la función está definida en otro archivo (controller/house.controller.js)
-router.post("/", hsCtrl.createHouses); //Con este guardo datos, ya que es un post
-router.get("/:id", hsCtrl.getHouse); //Pido una sola casa mediante el id
-router.put("/:id",hsCtrl.editHouse) //Para editar las casas, le pasamos el id porque voy a actualizar una casa en específico
-router.delete("/:id",hsCtrl.deleteHouse) //Para eliminar las casas, le pasamos el id porque voy a eliminar una casa en específico
+router.get("/houses", hsCtrl.getHouses); //Así es más limpio, ya que la función está definida en otro archivo (controller/house.controller.js)
+router.post("/houses", hsCtrl.createHouses); //Con este guardo datos, ya que es un post
+router.get("/houses/:id", hsCtrl.getHouse); //Pido una sola casa mediante el id
+router.put("/houses/:id",hsCtrl.editHouse) //Para editar las casas, le pasamos el id porque voy a actualizar una casa en específico
+router.delete("/houses/:id",hsCtrl.deleteHouse) //Para eliminar las casas, le pasamos el id porque voy a eliminar una casa en específico
 
 //RUTA REGISTRAR USUARIO
 router.post("/signup", async (req, res) => {
@@ -41,23 +41,6 @@ router.post("/signup", async (req, res) => {
   res.status(200).json({ token }); //Codigo de estado 200
 });
 
-//RUTA REGISTRAR CASA
-router.post("/reghouse", async (req, res) => {
-  const { w_search, type, province, population, room, bath, meters } = req.body;
-  const newHouse = new house({
-    w_search,
-    type,
-    province,
-    population,
-    room,
-    bath,
-    meters,
-  }); //Crear un nuevo piso
-  console.log(newHouse); //Guarda el piso
-  await newHouse.save();
-  const token = jwt.sign({ _id: newHouse._id }, "secretKey");
-  res.status(200).json({ token });
-});
 
 //RUTA LOGIN USUARIO
 router.post("/signin", async (req, res) => {

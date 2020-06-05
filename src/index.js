@@ -20,7 +20,7 @@ app.set("port", process.env.PORT || 3000); //Utiliza el puerto que te dé la nub
  */
 app.use(morgan("dev"));
 app.use(express.json()); //Nos ayuda a entender el código que viene en formato JSON desde el navegador, y asi el server lo entiende
-app.use(cors());
+app.use(cors({origin: 'http://localhost:4200'}));
 
 //Para que funcione el database.js hay que requerirlo
  require("./database");

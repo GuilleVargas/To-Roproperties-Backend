@@ -27,7 +27,7 @@ HouseCtrl.createHouses = async (req, res) =>{  // Crear/Guardar casas
     const housesave = new Houses(req.body);
     await housesave.save();
     res.json({
-        'status': 'Hoses Saved'
+        'status': 'Houses Saved'
     });
 };
 
