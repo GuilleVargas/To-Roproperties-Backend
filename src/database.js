@@ -3,7 +3,7 @@
  * ! mongoose para modelar los datos que vamos a estar guardando
  */
 
-/**Requiero el modulo de mongo y lo guardo en una constante con el mismo nombre
+/**Requiero el modulo de mongoose y lo guardo en una constante con el mismo nombre
  *! Mongoose se instala como dependencia pq es necesario, también sirve para modelar los datos
  */
 const mongoose = require("mongoose");

@@ -7,8 +7,9 @@ const express = require("express");
 //Ejecuto el modulo express, y el objeto que me devuelve el servidor lo guardo en app
 const app = express();
 const morgan = require("morgan");
-const cors = require("cors");
 //Añado en una constante el módulo cors, este módulo añade cabeceras a la petición para poder ser pasado a este servidor
+const cors = require("cors");
+
 
 //SETTINGS
 app.set("port", process.env.PORT || 3000); //Utiliza el puerto que te dé la nube o en caso contrario el puerto 3k
